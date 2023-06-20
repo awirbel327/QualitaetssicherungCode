@@ -1,11 +1,33 @@
 name: Quality Assurance
 
-# Controls when the workflow will run
+# Ausfürhung bei Pull-Request auf main 
 on: [pull_request]
- 
-steps:
-    name: Code Formatting Check
-    run: npm run format:check
+
+jobs: 
+ code_quality:
+  name: Codequalitaet
+  runs-on: ubuntu-latest
+  
+  steps:
+   - name: ReproCheck
+     uses: actions/ceckout@v2
+     
+     #andere Version 
+   - name: Setup Node.js
+     uses: action/setup-node@v2
+     with: 
+      node-version: 14 
+     
+   - name: Codeformatierungscheck 
+     run: npm run format:check
+     
+   - name: Linter 
+     run: npm run lint 
+     
+   - name: Codeduplikate Check
+     npm run duplicates: check
+     
+
 
  
 
