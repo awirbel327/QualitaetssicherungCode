@@ -1,0 +1,12 @@
+name: Quality Assurance
+
+# Controls when the workflow will run
+on: [pull_request]
+ 
+steps:
+    name: Code Formatting Check
+    run: npm run format:check
+
+ 
+
+ 
