@@ -18,14 +18,39 @@ jobs:
      with: 
       node-version: 14 
      
+     #Code Formatierung überprüfen
    - name: Codeformatierungscheck 
      run: npm run format:check
      
+     #Überprüfung auf unsaubere Codestruktur, Stilabweichung, usw..
    - name: Linter 
      run: npm run lint 
      
+     #Überprüft Code auf Duplikate
    - name: Codeduplikate Check
-     npm run duplicates: check
+     run: npm run duplicates:check
+     
+     #Security Check, eig nicht benötigt 
+   - name: SecCheck
+     run: npm run security-scan
+     
+     #statsische Codeanalyse 
+   - name: CodeAnalyse
+     run: npm run code-analysis
+     
+     #eig gleich wie oben ?
+   - name: statischeAna
+     run: npm run static-analysis 
+     
+     #Audit
+   - name: Audit
+     run: npm audit
+     
+     #Codekomplexität
+   - name: Codekomlexi
+     run: npm run complexity-check 
+     
+     
      
 
 
