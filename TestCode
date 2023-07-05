@@ -1,0 +1,17 @@
+internal class SecurityST{
+  private val bla = SecS()
+
+  @Test
+  fun `hasP s b t f eU`(){
+    val user = UserBuild(role = User.Role.END_USERS).build()
+
+    assertTrue(underTest.hasPermission(user))
+  }
+
+  @Test
+  fun ´hasP s b f for e`(){
+    val user = UserBuilder(role = User.Role.EDITORS).build()
+
+    assertTrue(underTest.hasPermission(user))
+  }
+}
